@@ -1,0 +1,54 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "!pip install -q google-generativeai python-dotenv"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import google.generativeai as genai\n",
+    "from IPython.display import Markdown\n",
+    "import textwrap, os"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 在此输入您的API密钥\n",
+    "GOOGLE_API_KEY = \"YOUR_API_KEY\"\n",
+    "\n",
+    "genai.configure(api_key=GOOGLE_API_KEY)\n",
+    "model = genai.GenerativeModel('gemini-pro')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def run_experiment():\n",
+    "    prompt = \"解释温度参数在LLM中的作用\"\n",
+    "    for temp in [0.0, 0.3, 0.7, 1.0, 1.5]:\n",
+    "        print(f\"\\n温度: {temp}\")\n",
+    "        response = model.generate_content(\n",
+    "            prompt,\n",
+    "            generation_config=genai.types.GenerationConfig(\n",
+    "                temperature=temp\n",
+    "            )\n",
+    "        )\n",
+    "        print(response.text)\n",
+    "\n",
+    "ru
