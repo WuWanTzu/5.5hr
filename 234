@@ -1,0 +1,10 @@
+id,title,genre,plot
+1,The Godfather,Crime,"The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son..."
+2,The Matrix,Science Fiction,"Thomas Anderson, a computer hacker, learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers..."
+...
+方法簡介：
+每一部電影的「劇情摘要」視為該電影的語意特徵（用 TF-IDF 或語意嵌入表示）。
+
+使用者若喜歡某部電影，我們就找出「與其劇情語意相似」的其他電影推薦。
+
+不需要大量使用者評分數據，只靠物品本身的內容特徵進行推薦。
